@@ -12,7 +12,7 @@ const usersRouter = require("./routes/users");
 const app = express();
 
 const uri =
-  "mongodb+srv://admin:dp1Nbnz85g5vFyrg@cluster0.qjgkqcy.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+  "mongodb+srv://admin:dp1Nbnz85g5vFyrg@cluster0.qjgkqcy.mongodb.net/clothe_store?retryWrites=true&w=majority&appName=Cluster0";
 
 // Set up mongoose connection
 mongoose.set("strictQuery", false);
