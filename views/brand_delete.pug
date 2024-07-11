@@ -1,0 +1,26 @@
+extends layout
+
+block content
+
+  h1 #{title}: #{brand.name}
+  p= brand.lifespan
+
+  if brand_clothes.length
+
+    p #[strong Delete the following clothes before attempting to delete this brand.]
+    div(style='margin-left:20px;margin-top:20px')
+      h4 Clothes
+      dl
+        each clothe in brand_clothes
+          dt
+            a(href=clothe.url) #{clothe.name}
+          dd #{clothe.description}
+
+  else
+    p Do you really want to delete this Brand?
+
+    form(method='POST')
+      div.form-group
+        input#brandid.form-control(type='hidden', name='brandid', value=brand._id )
+
+      button.btn.btn-primary(type='submit') Delete

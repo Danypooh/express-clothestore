@@ -1,0 +1,27 @@
+extends layout
+
+block content
+
+  h1 Brand: #{brand.name}
+
+  div(style='margin-left:20px;margin-top:20px')
+
+    h2(style='font-size: 1.5rem;') Clothes
+    if brand_clothes.length
+      dl
+        each clothe in brand_clothes
+          dt
+            a(href=clothe.url) #{clothe.name}
+          dd #{clothe.description}
+          dt
+          dd Type: #{clothe.clotheType.name}
+          dt
+          dd Price: $#{clothe.price}
+          dt
+          dd Categorie: #{clothe.categorie.name}
+    else
+      p This brand has no authors.
+
+  hr
+  p
+    a(href=brand.url+'/delete') Delete brand

@@ -2,4 +2,16 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
+  p Welcome to our #[em Clothe Store], a very basic Express website developed for practice.
+
+  h2 Dynamic content
+
+  p The store has the following record counts:
+
+  ul
+    li #[strong Clothes:] !{clothe_count}
+    li #[strong Clothe instances:] !{clothe_instance_count}
+    li #[strong Clothes available:] !{clothe_instance_available_count}
+    li #[strong Clothe types:] !{clothe_type_count}
+    li #[strong Categories:] !{categorie_count}
+    li #[strong Brands:] !{brand_count}
