@@ -1,0 +1,25 @@
+extends layout
+
+block content
+
+  h1 Categorie: #{categorie.name}
+
+  div(style='margin-left:20px;margin-top:20px')
+
+    h2(style='font-size: 1.5rem;') Clothes
+    if categorie_clothes.length
+      dl
+        each clothe in categorie_clothes
+          dt
+            a(href=clothe.url) #{clothe.name}
+          dd #{clothe.description}
+          dt
+          dd Type: #{clothe.clotheType.name}
+          dt
+          dd Price: $#{clothe.price}
+    else
+      p This categorie has no authors.
+
+  hr
+  p
+    a(href=categorie.url+'/delete') Delete categorie
