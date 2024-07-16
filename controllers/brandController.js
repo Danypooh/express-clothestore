@@ -29,8 +29,6 @@ exports.brandDetail = asyncHandler(async (req, res, next) => {
     return next(err);
   }
 
-  console.log(allClothesByBrand);
-
   res.render("brand_detail", {
     title: "Brand Detail",
     brand: brand,
@@ -39,7 +37,7 @@ exports.brandDetail = asyncHandler(async (req, res, next) => {
 });
 
 exports.brandCreateGet = asyncHandler(async (req, res, next) => {
-  res.render("brand_form", { title: "Create Author" });
+  res.render("brand_form", { title: "Create Brand" });
 });
 
 exports.brandCreatePost = [
@@ -50,7 +48,7 @@ exports.brandCreatePost = [
     .escape()
     .withMessage("Name must be specified.")
     .isAlphanumeric()
-    .withMessage("First name has non-alphanumeric characters."),
+    .withMessage("Name has non-alphanumeric characters."),
 
   // Process request after validation and sanitization.
   asyncHandler(async (req, res, next) => {
