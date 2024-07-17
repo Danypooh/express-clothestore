@@ -1,0 +1,25 @@
+extends layout 
+
+block content 
+
+  h1 #{title}: #{clothe_type.name}
+
+  if clothe_type_clothes.length
+
+    p #[strong Delete the following clothes before attempting to delete this clothe type.]
+    div(style='margin-left:20px;margin-top:20px')
+      h4 Clothes
+      dl
+        each clothe in clothe_type_clothes
+          dt 
+            a(href=clothe.url) #{clothe.name}
+          dd #{clothe.description}
+
+  else
+    p Do you really want to delete this Clothe Type?
+
+    form(method='POST')
+      div.form-group
+        input#clothetypeid.form-control(type='hidden', name='clothetypeid', value=clothe_type._id )
+
+      button.btn.btn-primary(type='submit') Delete
