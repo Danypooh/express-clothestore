@@ -1,0 +1,25 @@
+extends layout
+
+block content
+
+  h1 Clothe Type: #{clothe_type.name}
+
+  div(style='margin-left:20px;margin-top:20px')
+
+    h2(style='font-size: 1.5rem;') Clothes
+    if clothe_type_clothes.length
+      dl
+        each clothe in clothe_type_clothes
+          dt 
+            a(href=clothe.url) #{clothe.name}
+          dd #{clothe.description}
+          dt
+          dd Price: $#{clothe.price}
+          dt 
+          dd Categorie: #{clothe.categorie.name}
+    else 
+      p This clothe type has no clothes.
+
+  hr
+  p 
+    a(href=clothe_type.url+'/delete') Delete clothe type

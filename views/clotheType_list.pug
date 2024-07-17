@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  h1= title
+  if clothe_type_list.length
+    ul
+      each clothe_type in clothe_type_list
+        li
+          a(href=clothe_type.url) #{clothe_type.name}
+  else
+    p There are no clothe types.
