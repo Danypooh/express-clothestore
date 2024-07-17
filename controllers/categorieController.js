@@ -15,8 +15,9 @@ exports.categorieDetail = asyncHandler(async (req, res, next) => {
   const [categorie, allClothesByCategorie] = await Promise.all([
     Categorie.findById(req.params.id).exec(),
     Clothe.find({ categorie: req.params.id }, "clothe summary")
-      .select("name description clotheType price url")
+      .select("name brand description clotheType price url")
       .populate("clotheType")
+      .populate("brand")
       .exec(),
   ]);
 
